@@ -1,5 +1,6 @@
 
 import Login from './Login.js';
+import Register from './Register.js';
 
 function Header() {
 	return(
@@ -10,6 +11,7 @@ function Header() {
 					<img src="images/logo.png" />
 				</a>
 				<div>
+					<Register />
 					<Login />
 				</div>
 			</nav>
