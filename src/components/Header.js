@@ -1,4 +1,6 @@
 
+import Login from './Login.js';
+
 function Header() {
 	return(
 		<div className="container-fluid">
@@ -8,7 +10,7 @@ function Header() {
 					<img src="images/logo.png" />
 				</a>
 				<div>
-					
+					<Login />
 				</div>
 			</nav>
 		</div>
