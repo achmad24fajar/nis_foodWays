@@ -14,7 +14,7 @@ function Login() {
       Login
     </Button>
     <Modal show={show} onHide={handleClose} className="foodways-modal" centered>
-      
+
       <Modal.Body className="px-4">
         <div>
           <h2 className="text-warning">Login</h2>
