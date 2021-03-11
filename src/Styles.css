@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Libre+Baskerville:wght@700&display=swap');
 
+body{
+  background: #EFEFEF;
+}
+
 a.navbar-brand{
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 30px;
@@ -59,12 +63,29 @@ a.navbar-brand{
 
 .popular-restourant{
 	margin-top: 560px;
+  font-family: 'Libre Baskerville', serif;
+}
+
+.popular-restourant-title{
+  font-size: 20px;
 }
 
 .popular-restourant h2{
 	font-family: 'Libre Baskerville', serif;
 }
 
-.restourant-near-you h2{
+.restourant-near-you{
 	font-family: 'Libre Baskerville', serif;
+}
+
+.restourant-near-you-item img{
+  width: 100%;
+}
+
+.restourant-near-you-item h6{
+  height: 30px;
+}
+
+.restourant-near-you-item span{
+  font-size: 12px;
 }

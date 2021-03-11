@@ -9,11 +9,11 @@ import './Styles.css';
 
 function App() {
   return (
-    <div>
+    <div className="mb-5">
       <Header />
       <Landing />
     </div>
-    
+
   );
 }
 

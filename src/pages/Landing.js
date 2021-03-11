@@ -1,7 +1,11 @@
 import React from 'react';
 import {Container, Row, Col} from 'react-bootstrap';
 
-function Landing() {
+import {restourants} from '../data/dataRestourant.js';
+import {restourantNearYou} from '../data/dataRestourantNearYou.js';
+import Card from '../components/Card.js';
+
+const Landing = () => {
 
 	return (
 		<div>
@@ -18,9 +22,9 @@ function Landing() {
 									</Col>
 
 									<Col md={4}>
-										<span className="description">Lorem Ipsum is simply dummy text of the 
-										printing and typesetting industry. Lorem Ipsum has 
-										been the industry's standard dummy text ever since the 
+										<span className="description">Lorem Ipsum is simply dummy text of the
+										printing and typesetting industry. Lorem Ipsum has
+										been the industry's standard dummy text ever since the
 										1500s.</span>
 									</Col>
 								</Row>
@@ -36,15 +40,29 @@ function Landing() {
 				</Container>
 			</div>
 
-			<div className="popular-restourant">
+			<div className="popular-restourant mb-5">
 				<Container>
 					<h2>Popular Restourant</h2>
+					<Row>
+					{restourants.map((data) => (
+						<Col md={3}>
+							<Card data={data} template="style-1"/>
+						</Col>
+					))}
+					</Row>
 				</Container>
 			</div>
 
 			<div className="restourant-near-you">
 				<Container>
 					<h2>Restourant Near You</h2>
+					<Row>
+					{restourantNearYou.map((data) => (
+						<Col md={3}>
+							<Card data={data} template="style-2"/>
+						</Col>
+					))}
+					</Row>
 				</Container>
 			</div>
 		</div>
