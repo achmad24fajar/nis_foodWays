@@ -11,7 +11,7 @@ function Card(props) {
         <span className="font-weight-bold popular-restourant-title">{name}</span>
       </div>
     );
-  }
+  } else
 
   if(props.template == 'style-2'){
 
@@ -24,6 +24,23 @@ function Card(props) {
         <span className="text-muted ml-2">{distance}</span>
       </div>
     );
+  } else
+
+  if(props.template == 'style-3'){
+
+    const {id, name, image, price} = props.data;
+
+    return (
+      <div className="restourant-near-you-item bg-white rounded p-2 mt-3">
+        <img src={image} className="mr-3" />
+        <h6 className="mt-2 ml-2">{name}</h6>
+        <span className="text-dark ml-2">Rp.{price}</span>
+        <div className="my-2">
+          <button className="btn btn-block btn-warning">Order</button>
+        </div>
+      </div>
+    );
+
   }
 
 }

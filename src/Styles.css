@@ -107,3 +107,15 @@ a.navbar-brand{
 .restourant-near-you-item span{
   font-size: 12px;
 }
+
+/* Detail Product */
+.detail-product{
+  left: 0;
+	right: 0;
+	top: 0;
+	height: 80px;
+	z-index: 100;
+}
+.detail-product-menu{
+  font-family: 'Libre Baskerville', serif;
+}
