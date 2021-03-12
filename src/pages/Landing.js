@@ -1,13 +1,24 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams
+} from "react-router-dom";
 import {Container, Row, Col} from 'react-bootstrap';
 
 import {restourants} from '../data/dataRestourant.js';
 import {restourantNearYou} from '../data/dataRestourantNearYou.js';
 import Card from '../components/Card.js';
+import DetailProduct from './detailProduct.js'
 
 const Landing = () => {
 
 	return (
+		<Router>
+		<Switch>
+		<Route exact path="/">
 		<div>
 			<div className="bg-warning position-absolute landing-page">
 				<Container>
@@ -46,7 +57,11 @@ const Landing = () => {
 					<Row>
 					{restourants.map((data) => (
 						<Col md={3}>
-							<Card data={data} template="style-1"/>
+
+			        <Link to={'/'+data.name} className="nav-link p-0 text-dark">
+								<Card data={data} template="style-1"/>
+							</Link>
+
 						</Col>
 					))}
 					</Row>
@@ -66,6 +81,10 @@ const Landing = () => {
 				</Container>
 			</div>
 		</div>
+		</Route>
+		<Route path="/:id" children={<DetailProduct />}/>
+		</Switch>
+		</Router>
 	);
 }
 

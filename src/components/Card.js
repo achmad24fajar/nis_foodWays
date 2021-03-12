@@ -1,3 +1,4 @@
+import DetailProduct from '../pages/detailProduct.js'
 
 function Card(props) {
 
@@ -6,10 +7,12 @@ function Card(props) {
     const {id, name, image} = props.data
 
     return (
-      <div className="popular-restourant-item bg-white rounded p-2 mt-3">
-        <img src={image} className="mr-3" />
-        <span className="font-weight-bold popular-restourant-title">{name}</span>
-      </div>
+
+        <div className="popular-restourant-item bg-white rounded p-2 mt-3">
+          <img src={image} className="mr-3" />
+          <span className="font-weight-bold popular-restourant-title">{name}</span>
+        </div>
+
     );
   } else
 
