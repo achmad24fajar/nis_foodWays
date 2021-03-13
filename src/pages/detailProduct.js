@@ -9,13 +9,20 @@ import {
 import {products} from '../data/dataProduct.js';
 import {Container, Row, Col} from 'react-bootstrap';
 
-import Card from '../components/Card.js';
+import Card from '../components/Card.js'
 
-function DetailProduct() {
+
+function Detail() {
 
   let { id } = useParams();
-  console.log(id)
   const item = products.filter(data => data.restourant == id);
+
+  const addProductToCart = (product) => {
+    dispatch({
+      type: "ADD_CART",
+      payload: product,
+    });
+  };
 
   return(
     <>
@@ -26,7 +33,12 @@ function DetailProduct() {
         <Row>
         {item[0].product.map((data) => (
           <Col md={3}>
-            <Card data={data} template="style-3"/>
+            <Card 
+            data={data} 
+            template="style-3"
+            key={data.id}
+            fromProduct={true}
+            addProductToCart={addProductToCart}/>
           </Col>
         ))}
         </Row>
@@ -37,4 +49,4 @@ function DetailProduct() {
 
 }
 
-export default DetailProduct
+export default Detail

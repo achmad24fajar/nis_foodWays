@@ -1,24 +1,28 @@
-import React, {useState} from 'react';
+import {useContext, useState} from 'react';
 import {Button, Modal, Form} from 'react-bootstrap';
+import {useHistory} from 'react-router-dom';
+import {UserContext} from '../context/userContext';
 
-function LoginForm({Login}) {
+function LoginForm() {
+  const router = useHistory();
+  const [state, dispatch] = useContext(UserContext);
   const [show, setShow] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [isLog, setLogin] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   const loginHandler = (event) => {
     event.preventDefault()
-    setLogin(true)
-    if(email == 'achmad10@gmail.com'){
-      if(password == 'mypass'){
-        Login({isLog, email, password});
+    if(email == state.user.email){
+      if(password == state.user.password){
+        dispatch({
+          type: "LOGIN_SUCCESS"
+        })
+        handleClose()
+        router.push('/');
       }
-    }else{
-      Login('salah')
     }
   }
 

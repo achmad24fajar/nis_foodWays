@@ -1,12 +1,41 @@
-import React, {useState} from 'react';
+import {useState, useContext} from 'react';
+import {UserContext} from '../context/userContext';
 import {Button, Modal, Form} from 'react-bootstrap';
+import {useHistory} from 'react-router-dom';
 
 function Register() {
+  const router = useHistory();
   const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [fullName, setFullName] = useState('');
+  const [gender, setGender] = useState('');
+  const [phone, setPhone] = useState('');
+  const [role, setRole] = useState('');
 
+  const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const [state, dispatch] = useContext(UserContext);
+
+  const handleRegister = (event) => {
+    event.preventDefault()
+    dispatch({
+      type: 'USER_VALID',
+      payload: 
+        {
+          email: email,
+          password: password,
+          fullName: fullName,
+          gender: gender,
+          phone: phone,
+          role: role
+        }
+    });
+    handleClose()
+    router.push('/');
+  }
 
   return (
     <>
@@ -17,35 +46,40 @@ function Register() {
       
       <Modal.Body className="px-4">
         <div>
-          <h2 className="text-warning">Register</h2>
+          <h2 className="text-warning">Register {role}</h2>
         </div>
         <div className="mt-4">
-          <Form>
+          <Form onSubmit={handleRegister}>
 
             <Form.Group controlId="formBasicEmail">
-              <Form.Control type="email" placeholder="Enter email" />
+              <Form.Control type="email" placeholder="Enter email" value={email} onInput={e => setEmail(e.target.value)} />
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
-              <Form.Control type="password" placeholder="Password" />
+              <Form.Control type="password" placeholder="Password" value={password} onInput={e => setPassword(e.target.value)} />
             </Form.Group>
 
             <Form.Group controlId="formBasicEmail">
-              <Form.Control type="text" placeholder="Full Name" />
+              <Form.Control type="text" placeholder="Full Name" value={fullName} onInput={e => setFullName(e.target.value)} />
+            </Form.Group>
+
+            <Form.Group controlId="exampleForm.ControlSelect1" >
+              <Form.Control as="select" onChange={e => setGender(e.target.value)}>
+                <option value="">Choose Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </Form.Control>
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
-              <Form.Control type="text" placeholder="Gender" />
+              <Form.Control type="text" placeholder="Phone" value={phone} onInput={e => setPhone(e.target.value)} />
             </Form.Group>
 
-            <Form.Group controlId="formBasicPassword">
-              <Form.Control type="text" placeholder="Phone" />
-            </Form.Group>
-
-            <Form.Group controlId="exampleForm.ControlSelect1">
-              <Form.Control as="select">
-                <option>As User</option>
-                <option>As Admin</option>
+            <Form.Group controlId="exampleForm.ControlSelect1" >
+              <Form.Control as="select" onChange={e => setRole(e.target.value)}>
+                <option value="">Choose Role</option>
+                <option value="user">As User</option>
+                <option value="admin">As Admin</option>
               </Form.Control>
             </Form.Group>
 

@@ -1,11 +1,6 @@
-import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams
-} from "react-router-dom";
+import React, {useState, useContext} from 'react';
+import {UserContext} from '../context/userContext';
+import {Link} from "react-router-dom";
 import {Container, Row, Col} from 'react-bootstrap';
 
 import {restourants} from '../data/dataRestourant.js';
@@ -15,76 +10,69 @@ import DetailProduct from './detailProduct.js'
 
 const Landing = () => {
 
+	const [state] = useContext(UserContext);
+
 	return (
-		<Router>
-		<Switch>
-		<Route exact path="/">
-		<div>
-			<div className="bg-warning position-absolute landing-page">
-				<Container>
-					<Row className="landing-position">
-						<Col md={8}>
-							<div className="landing-text">
-								<h1>Are You Hungry?</h1>
-								<h1>Express Home Delivery</h1>
-								<Row>
-									<Col md={3}>
-										<div className="line"></div>
-									</Col>
+	<div>
+		<div className="bg-warning position-absolute landing-page">
+			<Container>
+				<Row className="landing-position">
+					<Col md={8}>
+						<div className="landing-text">
+							<h1>Are You Hungry?</h1>
+							<h1>Express Home Delivery</h1>
+							<Row>
+								<Col md={3}>
+									<div className="line"></div>
+								</Col>
 
-									<Col md={4}>
-										<span className="description">Lorem Ipsum is simply dummy text of the
-										printing and typesetting industry. Lorem Ipsum has
-										been the industry's standard dummy text ever since the
-										1500s.</span>
-									</Col>
-								</Row>
-							</div>
-						</Col>
+								<Col md={4}>
+									<span className="description">Lorem Ipsum is simply dummy text of the
+									printing and typesetting industry. Lorem Ipsum has
+									been the industry's standard dummy text ever since the
+									1500s.</span>
+								</Col>
+							</Row>
+						</div>
+					</Col>
 
-						<Col md={4}>
-							<div className="pizza">
-								<img src="/images/Landing/10219 1.png" alt="pizza" />
-							</div>
-						</Col>
-					</Row>
-				</Container>
-			</div>
-
-			<div className="popular-restourant mb-5">
-				<Container>
-					<h2>Popular Restourant</h2>
-					<Row>
-					{restourants.map((data) => (
-						<Col md={3}>
-
-			        <Link to={'/'+data.name} className="nav-link p-0 text-dark">
-								<Card data={data} template="style-1"/>
-							</Link>
-
-						</Col>
-					))}
-					</Row>
-				</Container>
-			</div>
-
-			<div className="restourant-near-you">
-				<Container>
-					<h2>Restourant Near You</h2>
-					<Row>
-					{restourantNearYou.map((data) => (
-						<Col md={3}>
-							<Card data={data} template="style-2"/>
-						</Col>
-					))}
-					</Row>
-				</Container>
-			</div>
+					<Col md={4}>
+						<div className="pizza">
+							<img src="/images/Landing/10219 1.png" alt="pizza" />
+						</div>
+					</Col>
+				</Row>
+			</Container>
 		</div>
-		</Route>
-		<Route path="/:id" children={<DetailProduct />}/>
-		</Switch>
-		</Router>
+
+		<div className="popular-restourant mb-5">
+			<Container>
+				<h2>Popular Restourant</h2>
+				<Row>
+				{restourants.map((data) => (
+					<Col md={3}>
+		        		<Link as={Link} to={'/detail-product/'+data.name} className="nav-link p-0 text-dark">
+							<Card data={data} template="style-1"/>
+						</Link>
+					</Col>
+				))}
+				</Row>
+			</Container>
+		</div>
+
+		<div className="restourant-near-you">
+			<Container>
+				<h2>Restourant Near You</h2>
+				<Row>
+				{restourantNearYou.map((data) => (
+					<Col md={3}>
+						<Card data={data} template="style-2"/>
+					</Col>
+				))}
+				</Row>
+			</Container>
+		</div>
+	</div>
 	);
 }
 

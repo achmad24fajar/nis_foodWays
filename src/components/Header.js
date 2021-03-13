@@ -1,35 +1,31 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
+import {UserContext} from '../context/userContext';
+import {Nav} from 'react-bootstrap'
+import {Link} from 'react-router-dom'
 
 import LoginForm from './Login.js';
 import Register from './Register.js';
 import UserActive from './User.js';
 
 function Header() {
-	const [isLogged, setLogin] = useState(false);
-	const [email, setEmail] = useState('');
-	const [pass, setPass] = useState('');
 
-	const Login = values => {
-		setEmail(values.email);
-		setPass(values.password);
-		setLogin(values.isLog);
-	}
-
+	const [state] = useContext(UserContext)
+	
 	return(
 		<>
 		<div className="container-fluid">
 			<nav className="navbar navbar-light foodways-navbar">
-				<a className="navbar-brand" href="#">
+				<Nav.Link as={Link} to="/" className="navbar-brand" href="#">
 					<span className="mr-2">FoodWays</span>
 					<img src="images/logo.png" />
-				</a>
-				<div className="d-block">
-				{(isLogged) ? (
-					<UserActive email={email} password={pass} role="admin" />
+				</Nav.Link>
+				<div className="d-block position-relative">
+				{(state.isLogin) ? (
+					<UserActive role="user" />
 				):(
 					<>
 					<Register />
-					<LoginForm Login={Login} />
+					<LoginForm />
 					</>
 				)}
 				</div>
