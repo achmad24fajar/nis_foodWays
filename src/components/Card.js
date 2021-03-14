@@ -41,7 +41,7 @@ function Card(props) {
         <div className="my-2">
           <button 
           className="btn btn-block btn-warning" 
-          onClick={() => props.addProductToCart(props.product)}>
+          onClick={() => props.addProductToCart(props.data, props.restourant)}>
             Order
           </button>
         </div>

@@ -3,9 +3,9 @@ import { createContext, useReducer } from "react";
 export const CartContext = createContext();
 
 const initialState = {
-  isLogin: false,
+  isLogin: true,
   carts: [],
-  currentRestaurant: "kfc",
+  currentRestaurant: '',
 };
 
 const reducer = (state, action) => {

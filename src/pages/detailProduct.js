@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
+import {CartContext} from '../context/cartContext';
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,10 +18,13 @@ function Detail() {
   let { id } = useParams();
   const item = products.filter(data => data.restourant == id);
 
-  const addProductToCart = (product) => {
+  const [state, dispatch] = useContext(CartContext);
+
+  const addProductToCart = (item, restourant) => {
     dispatch({
       type: "ADD_CART",
-      payload: product,
+      payload: item,
+      currentRestaurant: restourant
     });
   };
 
@@ -35,6 +39,7 @@ function Detail() {
           <Col md={3}>
             <Card 
             data={data} 
+            restourant={item[0].restourant}
             template="style-3"
             key={data.id}
             fromProduct={true}

@@ -17,7 +17,7 @@ function Header() {
 			<nav className="navbar navbar-light foodways-navbar">
 				<Nav.Link as={Link} to="/" className="navbar-brand" href="#">
 					<span className="mr-2">FoodWays</span>
-					<img src="images/logo.png" />
+					<img src="logo.png" />
 				</Nav.Link>
 				<div className="d-block position-relative">
 				{(state.isLogin) ? (
