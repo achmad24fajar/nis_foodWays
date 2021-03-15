@@ -5,6 +5,11 @@ body{
   background: #EFEFEF;
 }
 
+/*Set Font*/
+.libre{
+	font-family: 'Libre Baskerville', serif;
+}
+
 a.navbar-brand{
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 30px;
@@ -109,13 +114,34 @@ a.navbar-brand{
 }
 
 /* Detail Product */
-.detail-product{
-  left: 0;
+.foodways-nav{
+    left: 0;
 	right: 0;
 	top: 0;
-	height: 80px;
+	height: 73px;
 	z-index: 100;
 }
 .detail-product-menu{
-  font-family: 'Libre Baskerville', serif;
+	font-family: 'Libre Baskerville', serif;
+}
+
+/*Cart*/
+.counter span {
+	height: 30px;
+	width: 30px;
+	text-align: center;
+	cursor: pointer;
+}
+.calculate{
+	padding: 22px 0;
+	margin: 40px 0 0 0;
+}
+
+/*Map*/
+.map-container {
+position: relative;
+}
+
+.modal-90w{
+	width: 90%;
 }

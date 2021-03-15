@@ -26,14 +26,22 @@ function UserActive(props) {
     <>
       <NavDropdown
         title={
-                <div className="pull-left">
-                    <img className="user-icon" src="user.png" alt="user pic" />
-                </div>
-              } id="basic-nav-dropdown" className="float-right custom-dropdown">
+        <div className="pull-left">
+          <img className="user-icon" src="user.png" alt="user pic" />
+        </div>
+        } id="basic-nav-dropdown" className="float-right custom-dropdown">
 
-        <NavDropdown.Item href="#action/3.1" className="p-2">
-          <img className="user-icon-dropdown" src="user 2.png" /> Profile
-        </NavDropdown.Item>
+        {(props.role == 'admin') ? (
+          <NavDropdown.Item href="#action/3.1" className="p-2">
+            <img className="user-icon-dropdown" src="user 2.png" /> Profile
+          </NavDropdown.Item>
+        ) : (
+        <Nav.Link as={Link} to="/profile">
+          <NavDropdown.Item href="#action/3.1" className="p-2">
+            <img className="user-icon-dropdown" src="user 2.png" /> Profile
+          </NavDropdown.Item>
+        </Nav.Link>
+        )}
 
         { props.role == 'admin' && 
           <NavDropdown.Item href="#action/3.1" className="p-2">

@@ -15,7 +15,7 @@ function Header() {
 		<>
 		<div className="container-fluid">
 			<nav className="navbar navbar-light foodways-navbar">
-				<Nav.Link as={Link} to="/" className="navbar-brand" href="#">
+				<Nav.Link as={Link} to="/" className="navbar-brand">
 					<span className="mr-2">FoodWays</span>
 					<img src="logo.png" />
 				</Nav.Link>

@@ -14,12 +14,12 @@ import { UserContextProvider } from "./context/userContext"
 import { CartContextProvider } from "./context/cartContext";
 
 import Header from './components/Header.js'
+import PrivateRoute from './components/PrivateRoute'
 import Landing from './pages/Landing.js'
 import Detail from './pages/detailProduct.js'
 import Cart from './pages/Cart'
-import PrivateRoute from './components/PrivateRoute'
-
-
+import DetailOrder from './pages/detailOrder'
+import Profile from './pages/Profile'
 
 function App() {
 
@@ -32,6 +32,8 @@ function App() {
           <Route exact path="/" component={Landing} />
           <PrivateRoute exact path="/detail-product/:id" component={Detail} />
           <PrivateRoute exact path="/carts" component={Cart} />
+          <PrivateRoute exact path="/detail-order" component={DetailOrder} />
+          <PrivateRoute exact path="/profile" component={Profile} />
         </Router>
       </div>
       </CartContextProvider>

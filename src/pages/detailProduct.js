@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, {useContext} from 'react'
 import {CartContext} from '../context/cartContext';
 import {
   BrowserRouter as Router,
@@ -24,13 +24,14 @@ function Detail() {
     dispatch({
       type: "ADD_CART",
       payload: item,
-      currentRestaurant: restourant
+      resto: restourant,
+      addOrRemove: true
     });
   };
 
   return(
     <>
-    <div className="bg-warning position-absolute detail-product"></div>
+    <div className="bg-warning position-absolute foodways-nav"></div>
     <div className="detail-product-menu my-5">
       <Container>
       <h2>{item[0].restourant}, Menus</h2>

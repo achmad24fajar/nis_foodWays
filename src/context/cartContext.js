@@ -6,10 +6,12 @@ const initialState = {
   isLogin: true,
   carts: [],
   currentRestaurant: '',
+  ongkir: 20000,
+  addOrRemove: true
 };
 
 const reducer = (state, action) => {
-  const { type, payload } = action;
+  const { type, payload, resto, addOrRemove } = action;
 
   switch (type) {
     case "LOGIN_SUCCESS":
@@ -22,12 +24,28 @@ const reducer = (state, action) => {
         (cart) => cart.id === payload.id
       );
 
-      if (findProductById) {
+      
+      if (addOrRemove) {
+        if(findProductById){
+          const updatedCarts = state.carts.map((cart) =>
+            cart.id === payload.id
+              ? {
+                  ...cart,
+                  qty: cart.qty + 1,
+                }
+              : cart
+          );
+          return {
+            ...state,
+            carts: updatedCarts,
+          };
+        }
+      }else{
         const updatedCarts = state.carts.map((cart) =>
           cart.id === payload.id
             ? {
                 ...cart,
-                qty: cart.qty + 1,
+                qty: cart.qty - 1,
               }
             : cart
         );
@@ -47,6 +65,7 @@ const reducer = (state, action) => {
             qty: 1,
           },
         ],
+        currentRestaurant: resto
       };
     case "REMOVE_CART":
       const filteredCarts = state.carts.filter(
