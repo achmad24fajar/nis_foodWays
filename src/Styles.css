@@ -5,9 +5,23 @@ body{
   background: #EFEFEF;
 }
 
+/*Set Font Size*/
+.font-small{
+	font-size: 14px!important;
+}
+.font-standart{
+	font-size: 18px!important;
+}
+.font-big{
+	font-size: 30px!important;
+}
+
 /*Set Font*/
 .libre{
 	font-family: 'Libre Baskerville', serif;
+}
+.barlow{
+	font-family: 'Barlow Condensed', sans-serif;
 }
 
 a.navbar-brand{
@@ -121,9 +135,6 @@ a.navbar-brand{
 	height: 73px;
 	z-index: 100;
 }
-.detail-product-menu{
-	font-family: 'Libre Baskerville', serif;
-}
 
 /*Cart*/
 .counter span {
@@ -144,4 +155,21 @@ position: relative;
 
 .modal-90w{
 	width: 90%;
+}
+
+/*User Info*/
+.user-info span{
+	font-size: 20px;
+}
+
+.bg-status{
+	background: rgba(0, 255, 71, 0.2);
+	width: 70%;
+	margin: 6px 0;
+	float: right;
+}
+
+/*Edit User*/
+.bg-input{
+	background-color: #EFEFEF!important;
 }

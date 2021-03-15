@@ -1,11 +1,22 @@
-import {useState} from 'react'
+import {useState, useContext} from 'react'
+import {CartContext} from '../context/cartContext';
 import {Button, Modal, Row, Col} from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faShoppingBag } from '@fortawesome/free-solid-svg-icons'
 
 import {Link} from 'react-router-dom'
 
 function Order(props) {
-
+	const [state, dispatch] = useContext(CartContext);
 	const [show, setShow] = useState(false);
+
+	const order = (carts, newResto) => {
+	    dispatch({
+			type: "ORDER",
+			payload: carts,
+			newResto: newResto
+	    });
+	};
 
 	const handleClose = () => setShow(false);
   	const handleShow = () => setShow(true);
@@ -13,7 +24,7 @@ function Order(props) {
 	return (
     <>
     <Button variant="dark" onClick={handleShow} className="btn-sm mr-2" style={{width: "250px"}}>
-        Order
+        <FontAwesomeIcon icon={faShoppingBag} className="text-white font-standart mr-2" />Order
     </Button>
     <Modal 
     	show={show} 
@@ -70,7 +81,7 @@ function Order(props) {
 			</Row>
         </Modal.Body>
         <Modal.Footer className="text-left">
-	        <Link as={Link} to={'/detail-order/'} className="btn btn-dark">Checkout</Link>
+	        <Link as={Link} to={'/detail-order/'} onClick={(carts,newResto) => order(state.carts,state.currentRestaurant)} className="btn btn-dark">Checkout</Link>
 	    </Modal.Footer>
     </Modal>
     </>

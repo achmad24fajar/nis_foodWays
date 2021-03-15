@@ -1,7 +1,7 @@
 import {Container, Row, Col, Nav} from 'react-bootstrap';
 import {Link} from 'react-router-dom'
 
-function Profile() {
+function ProfilePartner() {
 
 	return(
 		<div>
@@ -12,14 +12,14 @@ function Profile() {
 					<div className="user-profile">
 					<Row>
 						<Col md={7}>
-							<h3 className="libre">Profile</h3>
+							<h3 className="libre">Profile Partner</h3>
 							<div className="user mt-4">
 								<Row>
 									<Col md={3}>
 										<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Zayn_Wiki_%28cropped%29.jpg/220px-Zayn_Wiki_%28cropped%29.jpg" 
 										alt="Achmad Fajar" width="100%" className="rounded" />
 										<div className="btn-edit mt-3">
-											<Nav.Link as={Link} to="/edit-profile" className="btn btn-dark btn-block">Edit Profile</Nav.Link>
+											<Nav.Link as={Link} to="/edit/profile-partner" className="btn btn-dark btn-block">Edit Profile</Nav.Link>
 										</div>
 									</Col>
 									<Col md={9}>
@@ -42,7 +42,7 @@ function Profile() {
 							</div>
 						</Col>
 						<Col md={5}>
-							<h3 className="libre">History Transaction</h3>
+							<h3 className="libre">History Order</h3>
 							<div className="history mt-4">
 								<div className="bg-white p-3 rounded">
 								<Row>
@@ -56,8 +56,8 @@ function Profile() {
 									</Col>
 									<Col md={6} className="text-right">
 										<div className="foodways-icon">
-											<span className="mr-2 barlow font-big">FoodWays</span>
-											<img src="logo.png" />
+											<span className='mr-2 barlow font-big'>FoodWays</span>
+											<img src={process.env.PUBLIC_URL + "logo.png"} />
 										</div>
 										<div className="status">
 											<div className="bg-status text-center"><span className="text-success">Finished</span></div>
@@ -75,4 +75,4 @@ function Profile() {
 	)
 }
 
-export default Profile
+export default ProfilePartner

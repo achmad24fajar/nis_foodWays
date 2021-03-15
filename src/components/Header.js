@@ -10,6 +10,8 @@ import UserActive from './User.js';
 function Header() {
 
 	const [state] = useContext(UserContext)
+
+	console.log(state.user)
 	
 	return(
 		<>
@@ -17,11 +19,11 @@ function Header() {
 			<nav className="navbar navbar-light foodways-navbar">
 				<Nav.Link as={Link} to="/" className="navbar-brand">
 					<span className="mr-2">FoodWays</span>
-					<img src="logo.png" />
+					<img src={process.env.PUBLIC_URL + '/logo.png'} />
 				</Nav.Link>
 				<div className="d-block position-relative">
 				{(state.isLogin) ? (
-					<UserActive role="user" />
+					<UserActive role="partner" />
 				):(
 					<>
 					<Register />

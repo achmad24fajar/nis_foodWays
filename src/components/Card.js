@@ -1,4 +1,6 @@
 import { useHistory } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
 
 function Card(props) {
 
@@ -36,13 +38,13 @@ function Card(props) {
     return (
       <div className="restourant-near-you-item bg-white rounded p-2 mt-3">
         <img src={image} className="mr-3" />
-        <h6 className="mt-2 ml-2">{name}</h6>
-        <span className="text-dark ml-2">Rp.{price}</span>
+        <h6 className="mt-3 ml-2 libre">{name}</h6>
+        <span className="text-dark ml-2 font-standart font-weight-bold">Rp.{price}</span>
         <div className="my-2">
           <button 
-          className="btn btn-block btn-warning" 
+          className="btn btn-block btn-warning font-weight-bold" 
           onClick={() => props.addProductToCart(props.data, props.restourant)}>
-            Order
+            <FontAwesomeIcon icon={faCartPlus} /> Order
           </button>
         </div>
       </div>

@@ -6,7 +6,6 @@ import {Container, Row, Col} from 'react-bootstrap';
 import {restourants} from '../data/dataRestourant.js';
 import {restourantNearYou} from '../data/dataRestourantNearYou.js';
 import Card from '../components/Card.js';
-import DetailProduct from './detailProduct.js'
 
 const Landing = () => {
 
@@ -51,7 +50,7 @@ const Landing = () => {
 				<Row>
 				{restourants.map((data) => (
 					<Col md={3}>
-		        		<Link as={Link} to={'/detail-product/'+data.name} className="nav-link p-0 text-dark">
+		        		<Link as={Link} to={'/detail-product/'+data.name.toLowerCase()} className="nav-link p-0 text-dark">
 							<Card data={data} template="style-1"/>
 						</Link>
 					</Col>

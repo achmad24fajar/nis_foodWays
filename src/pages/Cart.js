@@ -1,6 +1,9 @@
 import React, {useContext} from 'react'
 import {CartContext} from '../context/cartContext';
-import {Container, Row, Col} from 'react-bootstrap';
+import {Container, Row, Col, Nav} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlusSquare, faMinusSquare, faTrash } from '@fortawesome/free-solid-svg-icons'
 
 import Order from '../components/Order';
 import Map from '../components/Map';
@@ -59,6 +62,16 @@ function Cart() {
 			    <div className="text-center my-5">
 			       <Container>
 				        <h2 className="text-muted libre">You haven't ordered yet</h2>
+				        <div className="empty mt-5">
+				        	<img src={process.env.PUBLIC_URL + '/empty.svg'} alt="empty-product"
+				        		style={{
+				        			width: "400px"
+				        		}}
+				        	/>
+				        </div>
+				        <Nav.Link as={Link} to="/" className="btn btn-dark mx-auto mt-5" style={{width: "200px"}}>
+				        	Buy something now!
+				        </Nav.Link>
 			       </Container>
 			    </div>
 			) : (
@@ -75,7 +88,7 @@ function Cart() {
 									}} />
 									<Map/>
 								</div>
-								<div className="cartItem mt-3">
+							   	<div className="cartItem mt-3">
 									<Row>
 										<Col md={8}>
 											<div className="border-bottom border-dark py-2">
@@ -95,17 +108,20 @@ function Cart() {
 														<h5>{cart.name}</h5>
 													</div>
 													<div className="d-flex counter mt-3">
-														<span onClick={id => reduce(cart.id)}>-</span>
-														<span style={{background: "rgba(246, 230, 218, 1)"}}>{cart.qty}</span>
-														<button onClick={id => add(cart.id)}>+</button>
+														<FontAwesomeIcon icon={faPlusSquare} onClick={id => reduce(cart.id)}
+														className="text-dark font-big" />
+														<span className="font-weight-bold mt-1">{cart.qty}</span>
+														<FontAwesomeIcon icon={faMinusSquare} onClick={id => add(cart.id)}
+														className="text-dark font-big" />
 													</div>
 												</Col>
 												<Col md={5} className="text-right">
 													<div className="mt-2">
-														<h6 className="text-danger">Rp. {cart.price}</h6>
+														<h6 className="text-danger font-standart">Rp. {cart.price}</h6>
 													</div>
 													<div className="mt-3">
-														<button onClick={id => removeProductToCart(cart.id)}>Hapus</button>
+														<FontAwesomeIcon icon={faTrash} onClick={id => removeProductToCart(cart.id)}
+														className="text-dark font-big" />
 													</div>
 												</Col>
 											</Row>
@@ -128,13 +144,13 @@ function Cart() {
 												</Col>
 												<Col md={6} className="text-right">
 													<div className="mt-1">
-														<span className="text-danger">Rp. {subTotal}</span>
+														<span className="text-danger font-standart font-weight-bold">Rp. {subTotal}</span>
 													</div>
 													<div className="mt-2">
-														<span>{totalItem}</span>
+														<span className="font-standart font-weight-bold">{totalItem}</span>
 													</div>
 													<div className="mt-2">
-														<span className="text-danger">Rp. {state.ongkir}</span>
+														<span className="text-danger font-standart font-weight-bold">Rp. {state.ongkir}</span>
 													</div>
 												</Col>
 											</Row>
@@ -147,7 +163,7 @@ function Cart() {
 												</Col>
 												<Col md={6} className="text-right">
 													<div>
-														<h5 className="text-danger">Rp. {total}</h5>
+														<h5 className="text-danger font-big">Rp. {total}</h5>
 													</div>
 												</Col>
 											</Row>

@@ -13,10 +13,10 @@ import {Container, Row, Col} from 'react-bootstrap';
 import Card from '../components/Card.js'
 
 
-function Detail() {
+function Product() {
 
   let { id } = useParams();
-  const item = products.filter(data => data.restourant == id);
+  const item = products.filter(data => data.restourant.toLowerCase() == id);
 
   const [state, dispatch] = useContext(CartContext);
 
@@ -34,7 +34,7 @@ function Detail() {
     <div className="bg-warning position-absolute foodways-nav"></div>
     <div className="detail-product-menu my-5">
       <Container>
-      <h2>{item[0].restourant}, Menus</h2>
+      <h2 className="libre">{item[0].restourant}, Menus</h2>
         <Row>
         {item[0].product.map((data) => (
           <Col md={3}>
@@ -55,4 +55,4 @@ function Detail() {
 
 }
 
-export default Detail
+export default Product

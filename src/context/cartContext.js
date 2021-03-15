@@ -6,12 +6,14 @@ const initialState = {
   isLogin: true,
   carts: [],
   currentRestaurant: '',
+  order: [],
+  restaurant: '',
   ongkir: 20000,
   addOrRemove: true
 };
 
 const reducer = (state, action) => {
-  const { type, payload, resto, addOrRemove } = action;
+  const { type, payload, resto, addOrRemove, newResto } = action;
 
   switch (type) {
     case "LOGIN_SUCCESS":
@@ -75,6 +77,14 @@ const reducer = (state, action) => {
       return {
         ...state,
         carts: filteredCarts,
+      };
+    case "ORDER":
+      return {
+        ...state,
+        order: [payload],
+        restaurant: newResto,
+        carts: null,
+        currentRestaurant: ''
       };
     default:
       throw new Error();

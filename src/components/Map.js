@@ -1,14 +1,15 @@
 import React, { useRef, useEffect, useState } from 'react';
 import ReactMapGL, {Popup} from 'react-map-gl';
 import {Button, Modal} from 'react-bootstrap';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMapMarker } from '@fortawesome/free-solid-svg-icons'
 
 function Map() {
 
   const [viewport, setViewport] = useState({
     latitude: 45.4211,
     longitude: -75.6903,
-    width: "100vw",
+    width: "70vw",
     height: "60vh",
     zoom: 10
   });
@@ -23,7 +24,7 @@ function Map() {
   return (
     <>
     <Button variant="dark" onClick={handleShow} className="btn-sm mr-2" style={{width: "250px"}}>
-        Location
+      <FontAwesomeIcon icon={faMapMarker} className="text-white font-standart mr-2" />See on map
     </Button>
     <Modal 
       show={show} 

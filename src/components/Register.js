@@ -46,7 +46,7 @@ function Register() {
       
       <Modal.Body className="px-4">
         <div>
-          <h2 className="text-warning">Register {role}</h2>
+          <h2 className="text-warning">Register</h2>
         </div>
         <div className="mt-4">
           <Form onSubmit={handleRegister}>
@@ -79,7 +79,7 @@ function Register() {
               <Form.Control as="select" onChange={e => setRole(e.target.value)}>
                 <option value="">Choose Role</option>
                 <option value="user">As User</option>
-                <option value="admin">As Admin</option>
+                <option value="partner">As Partner</option>
               </Form.Control>
             </Form.Group>
 
