@@ -1,5 +1,7 @@
 import React, {useContext} from 'react'
 import {Container, Row, Col} from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMapMarker, faSave } from '@fortawesome/free-solid-svg-icons'
 
 function EditProfilePartner() {
 
@@ -39,12 +41,15 @@ function EditProfilePartner() {
 									</div>
 								</Col>
 								<Col md={3}>
-									<button className="btn btn-dark btn-block">See on map</button>
+									<button className="btn btn-dark btn-block">
+										<FontAwesomeIcon icon={faMapMarker} className="font-standart float-left mt-1" /> See on map
+									</button>
 								</Col>
 							</Row>
 							<div className="mt-4 text-right">
-								<input type="submit" className="btn btn-dark" value="Save" style={{
-									width: "300px"}}/>
+								<button type="submit" className="btn btn-dark" style={{width: "300px"}}>
+									<FontAwesomeIcon icon={faSave} className="font-standart float-left mt-1" /> Save
+								</button>
 							</div>
 							</form>
 						</div>

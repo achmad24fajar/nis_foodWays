@@ -173,3 +173,20 @@ position: relative;
 .bg-input{
 	background-color: #EFEFEF!important;
 }
+
+/*Map*/
+.map.modal{
+	overflow-y: hidden!important; 
+	width: 100%!important;
+}
+.map.modal-dialog.modal-content{
+	width: 0!important;
+	border: none!important;
+}
+.map.modal-body{
+	padding: 0!important;
+}
+.modal-body-map{
+	margin-left: -443px;
+	margin-top: 325px;
+}

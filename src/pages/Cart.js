@@ -108,10 +108,10 @@ function Cart() {
 														<h5>{cart.name}</h5>
 													</div>
 													<div className="d-flex counter mt-3">
-														<FontAwesomeIcon icon={faPlusSquare} onClick={id => reduce(cart.id)}
+														<FontAwesomeIcon icon={faMinusSquare} onClick={id => reduce(cart.id)}
 														className="text-dark font-big" />
 														<span className="font-weight-bold mt-1">{cart.qty}</span>
-														<FontAwesomeIcon icon={faMinusSquare} onClick={id => add(cart.id)}
+														<FontAwesomeIcon icon={faPlusSquare} onClick={id => add(cart.id)}
 														className="text-dark font-big" />
 													</div>
 												</Col>

@@ -43,19 +43,21 @@ const reducer = (state, action) => {
           };
         }
       }else{
-        const updatedCarts = state.carts.map((cart) =>
-          cart.id === payload.id
-            ? {
-                ...cart,
-                qty: cart.qty - 1,
-              }
-            : cart
-        );
+        if(findProductById){
+          const updatedCarts = state.carts.map((cart) =>
+            cart.id === payload.id
+              ? {
+                  ...cart,
+                  qty: cart.qty - 1,
+                }
+              : cart
+          );
 
-        return {
-          ...state,
-          carts: updatedCarts,
-        };
+          return {
+            ...state,
+            carts: updatedCarts,
+          };
+        }
       }
 
       return {

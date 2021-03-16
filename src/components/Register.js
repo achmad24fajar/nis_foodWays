@@ -34,7 +34,11 @@ function Register() {
         }
     });
     handleClose()
-    router.push('/');
+    if(role == 'partner'){
+      router.push('/partner');
+    }else{
+      router.push('/');
+    }
   }
 
   return (

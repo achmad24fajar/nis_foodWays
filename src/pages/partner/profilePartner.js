@@ -1,5 +1,7 @@
 import {Container, Row, Col, Nav} from 'react-bootstrap';
 import {Link} from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserEdit } from '@fortawesome/free-solid-svg-icons'
 
 function ProfilePartner() {
 
@@ -15,14 +17,16 @@ function ProfilePartner() {
 							<h3 className="libre">Profile Partner</h3>
 							<div className="user mt-4">
 								<Row>
-									<Col md={3}>
+									<Col md={4}>
 										<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Zayn_Wiki_%28cropped%29.jpg/220px-Zayn_Wiki_%28cropped%29.jpg" 
 										alt="Achmad Fajar" width="100%" className="rounded" />
 										<div className="btn-edit mt-3">
-											<Nav.Link as={Link} to="/edit/profile-partner" className="btn btn-dark btn-block">Edit Profile</Nav.Link>
+											<Nav.Link as={Link} to="/partner/edit/profile-partner" className="btn btn-dark btn-block">
+											<FontAwesomeIcon icon={faUserEdit} className="font-standart" />	Edit Profile
+											</Nav.Link>
 										</div>
 									</Col>
-									<Col md={9}>
+									<Col md={8}>
 										<div className="user-info">
 										<div>
 											<span className="d-block font-weight-bold">FullName</span>

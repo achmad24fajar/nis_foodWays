@@ -23,7 +23,7 @@ function Header() {
 				</Nav.Link>
 				<div className="d-block position-relative">
 				{(state.isLogin) ? (
-					<UserActive role="partner" />
+					<UserActive role={state.user.role} />
 				):(
 					<>
 					<Register />

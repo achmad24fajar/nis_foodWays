@@ -4,7 +4,7 @@ import {UserContext} from '../context/userContext';
 import {CartContext} from '../context/cartContext';
 import {NavDropdown, Nav, Alert} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCartPlus, faUser, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+import { faCartPlus, faUser, faSignOutAlt, faBoxes } from '@fortawesome/free-solid-svg-icons'
 
 function UserActive(props) {
 
@@ -24,6 +24,8 @@ function UserActive(props) {
     })
   }
 
+  console.log(`${props.rule} from user`)
+
   let total = (qty.length != 0 ? qty.reduce((a, b) => a + b) : 0 )
  
   return(
@@ -37,7 +39,7 @@ function UserActive(props) {
 
         {(props.role == 'partner') ? (
         <Nav.Link as={Link} to="/partner/profile-partner">
-          <NavDropdown.Item href="#action/3.1" className="p-2">
+          <NavDropdown.Item href="/partner/profile-partner" className="p-2 font-weight-bold">
             <span style={{marginRight: "15px"}}>
               <FontAwesomeIcon icon={faUser} className="text-dark font-standart" />
             </span>
@@ -48,7 +50,7 @@ function UserActive(props) {
         </Nav.Link>
         ) : (
         <Nav.Link as={Link} to="/profile">
-          <NavDropdown.Item className="p-2 font-weight-bold">
+          <NavDropdown.Item href="/profile" className="p-2 font-weight-bold">
             <span style={{marginRight: "15px"}}>
               <FontAwesomeIcon icon={faUser} className="text-dark font-standart" />
             </span>
@@ -61,8 +63,13 @@ function UserActive(props) {
 
         { props.role == 'partner' && 
         <Nav.Link as={Link} to="/partner/add-product">
-          <NavDropdown.Item href="#action/3.1" className="p-2">
-            <img className="user-icon-dropdown" src={process.env.PUBLIC_URL + '/product.png'} /> Product
+          <NavDropdown.Item href="/partner/add-product" className="p-2 font-weight-bold">
+            <span style={{marginRight: "11px"}}>
+              <FontAwesomeIcon icon={faBoxes} className="text-dark font-standart" />
+            </span>
+            <span>
+              Product
+            </span>
           </NavDropdown.Item> 
         </Nav.Link>
         }
