@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useMemo, useEffect, useState } from 'react';
 import ReactMapGL, {Popup} from 'react-map-gl';
 import {Button, Modal} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -7,12 +7,15 @@ import { faMapMarker, faTimes } from '@fortawesome/free-solid-svg-icons'
 function Map() {
 
   const [viewport, setViewport] = useState({
-    latitude: 45.4211,
-    longitude: -75.6903,
-    width: "100vw",
+    container: 'map',
+    latitude: -6.1753942,
+    longitude: 106.827183,
+    width: "fit",
     height: "50vh",
-    zoom: 10
+    zoom: 10,
   });
+
+  console.log(viewport)
 
   const [show, setShow] = useState(false);
 
@@ -23,34 +26,25 @@ function Map() {
 
   return (
     <>
-    <Button variant="dark" onClick={handleShow} className="btn-sm mr-2" style={{width: "250px"}}>
+    <Button variant="dark" onClick={handleShow} className="mr-2" style={{width: "250px"}}>
       <FontAwesomeIcon icon={faMapMarker} className="text-white font-standart mr-2" />See on map
     </Button>
     
     <Modal 
       show={show} 
       onHide={handleClose}
-      className="map">
+      centered>
 
 
-      <Modal.Body className="modal-body-map">
+      <Modal.Body>
         <FontAwesomeIcon icon={faTimes} className="text-dark font-big" onClick={handleClose}
-        style={{position: "absolute", right: "393", top: "11px", zIndex: "2000", cursor: "pointer"}} />
+        style={{position: "absolute", right: "25", top: "20", zIndex: "2000", cursor: "pointer"}} />
 
         <ReactMapGL 
         {...viewport} 
+        mapStyle="mapbox://styles/mapbox/streets-v9"
         mapboxApiAccessToken="pk.eyJ1IjoiYWNoZmFqYXItMjQiLCJhIjoiY2ttOTdmYmhhMWZndzJvb2o5b3h3Ym5tcyJ9.nrHsfh693IosdLB9294YQQ"
-        onViewportChange={(viewport) => setViewport(viewport)}> 
-          {showPopup && <Popup
-            latitude={37.78}            
-            longitude={-122.41}
-            closeButton={true}
-            closeOnClick={false}
-            onClose={() => togglePopup(false)}
-            anchor="top" >
-            <div>You are here</div>
-          </Popup>}
-          
+        onViewportChange={(viewport) => setViewport(viewport)}>          
         </ReactMapGL>
 
       </Modal.Body>

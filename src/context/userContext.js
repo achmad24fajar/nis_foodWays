@@ -6,7 +6,7 @@ export const UserContext = createContext();
 
 // membuat variable initialState untuk menampung nilai awal dari form login
 const initialState = {
-	isLogin: false,
+	isLogin: true,
 	user: null
 }
 

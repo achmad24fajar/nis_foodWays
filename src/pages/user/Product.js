@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import {CartContext} from '../context/cartContext';
+import {CartContext} from '../../context/cartContext';
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,10 +7,10 @@ import {
   Link,
   useParams
 } from "react-router-dom";
-import {products} from '../data/dataProduct.js';
+import {products} from '../../data/dataProduct.js';
 import {Container, Row, Col} from 'react-bootstrap';
 
-import Card from '../components/Card.js'
+import Card from '../../components/Card.js'
 
 
 function Product() {

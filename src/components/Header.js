@@ -15,7 +15,7 @@ function Header() {
 	
 	return(
 		<>
-		<div className="container-fluid">
+		<div className="container-fluid position-fixed" style={{zIndex: "200", top: "0"}}>
 			<nav className="navbar navbar-light foodways-navbar">
 				<Nav.Link as={Link} to="/" className="navbar-brand">
 					<span className="mr-2">FoodWays</span>
@@ -23,7 +23,7 @@ function Header() {
 				</Nav.Link>
 				<div className="d-block position-relative">
 				{(state.isLogin) ? (
-					<UserActive role={state.user.role} />
+					<UserActive role="partner" />
 				):(
 					<>
 					<Register />

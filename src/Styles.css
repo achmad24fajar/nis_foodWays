@@ -99,8 +99,8 @@ a.navbar-brand{
 }
 
 .popular-restourant{
-	margin-top: 560px;
-  font-family: 'Libre Baskerville', serif;
+	margin-top: 620px;
+  	font-family: 'Libre Baskerville', serif;
 }
 
 .popular-restourant-title{
@@ -136,7 +136,10 @@ a.navbar-brand{
 	z-index: 100;
 }
 
-/*Cart*/
+/*Cart Page*/
+.cart-page{
+	margin: 120px 0 30px 0;
+}
 .counter span {
 	height: 30px;
 	width: 30px;
@@ -147,6 +150,17 @@ a.navbar-brand{
 	padding: 22px 0;
 	margin: 40px 0 0 0;
 }
+
+/*Product Menu*/
+.detail-product-menu{
+	margin: 120px 0 30px 0;
+}
+
+/*Profile Page*/
+.profile-page{
+	margin: 120px 0 30px 0;
+}
+
 
 /*Map*/
 .map-container {
@@ -175,18 +189,3 @@ position: relative;
 }
 
 /*Map*/
-.map.modal{
-	overflow-y: hidden!important; 
-	width: 100%!important;
-}
-.map.modal-dialog.modal-content{
-	width: 0!important;
-	border: none!important;
-}
-.map.modal-body{
-	padding: 0!important;
-}
-.modal-body-map{
-	margin-left: -443px;
-	margin-top: 325px;
-}

@@ -1,11 +1,11 @@
 import React, {useState, useContext} from 'react';
-import {UserContext} from '../context/userContext';
+import {UserContext} from '../../context/userContext';
 import {Link} from "react-router-dom";
 import {Container, Row, Col} from 'react-bootstrap';
 
-import {restourants} from '../data/dataRestourant.js';
-import {restourantNearYou} from '../data/dataRestourantNearYou.js';
-import Card from '../components/Card.js';
+import {restourants} from '../../data/dataRestourant.js';
+import {restourantNearYou} from '../../data/dataRestourantNearYou.js';
+import Card from '../../components/Card.js';
 
 const Landing = () => {
 

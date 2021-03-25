@@ -24,7 +24,7 @@ function Order(props) {
 	return (
     <>
     <Button variant="dark" onClick={handleShow} className="btn-sm mr-2" style={{width: "250px"}}>
-        <FontAwesomeIcon icon={faShoppingBag} className="text-white font-standart mr-2" />Order
+        <FontAwesomeIcon icon={faShoppingBag} className="text-white font-standart mr-2" /> Checkout
     </Button>
     <Modal 
     	show={show} 
@@ -81,7 +81,11 @@ function Order(props) {
 			</Row>
         </Modal.Body>
         <Modal.Footer className="text-left">
-	        <Link as={Link} to={'/detail-order/'} onClick={(carts,newResto) => order(state.carts,state.currentRestaurant)} className="btn btn-dark">Checkout</Link>
+	        <Link as={Link} to={'/detail-order/'} 
+	        onClick={(carts,newResto) => order(state.carts,state.currentRestaurant)} 
+	        className="btn btn-dark">
+	        	Confirm
+	        </Link>
 	    </Modal.Footer>
     </Modal>
     </>

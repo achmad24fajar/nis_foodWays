@@ -7,9 +7,9 @@ function EditProfilePartner() {
 
 	return(
 		<div>
-			<div className="bg-warning position-absolute foodways-nav"></div>
+			<div className="bg-warning foodways-nav shadow-sm position-fixed" style={{zIndex: "100"}}></div>
 			
-			<div className="mt-5">
+			<div className="profile-page">
 				<Container>
 					<div className="user-profile">
 						<h3 className="libre">Edit Profile Partner</h3>

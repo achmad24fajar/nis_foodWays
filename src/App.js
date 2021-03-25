@@ -15,12 +15,13 @@ import { CartContextProvider } from "./context/cartContext";
 
 import Header from './components/Header.js'
 import PrivateRoute from './components/PrivateRoute'
-import Landing from './pages/Landing.js'
-import Product from './pages/Product.js'
-import Cart from './pages/Cart'
-import DetailOrder from './pages/detailOrder'
-import Profile from './pages/Profile'
-import EditProfile from './pages/editProfile'
+
+import Landing from './pages/user/Landing.js'
+import Product from './pages/user/Product.js'
+import Cart from './pages/user/Cart'
+import DetailOrder from './pages/user/detailOrder'
+import Profile from './pages/user/Profile'
+import EditProfile from './pages/user/editProfile'
 
 // Partner Pages
 import Partner from './pages/partner/Partner'
